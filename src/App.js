@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Home from "./elements/Home";
+import Students from "./elements/Students";
+import Create from "./elements/Create";
+import Edit from "./elements/Edit";
+
+import Books from "./elements/Books";
+import Bcreate from "./elements/Bcreate";
+import Bedit from "./elements/Bedit";
+import Library from "./elements/Library";
+import Lcreate from "./elements/Lcreate";
+import Ledit from "./elements/Ledit";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/students" element={<Students />} />
+        <Route path="students/create" element={<Create />} />
+        <Route path="students/edit/:id" element={<Edit />} />
+        <Route path="/books" element={<Books />} />
+        <Route path="books/bcreate" element={<Bcreate />} />
+        <Route path="books/bedit/:id" element={<Bedit />} />
+        <Route path="/library" element={<Library />} />
+        <Route path="library/lcreate" element={<Lcreate />} />
+        <Route path="library/ledit/:id" element={<Ledit />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
 export default App;
